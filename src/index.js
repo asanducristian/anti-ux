@@ -3,11 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { InfiniteScrollProvider, MagicCursorProvider, MouseTrailProvider, SideScrollProvider } from 'react-intuitive-components';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <MagicCursorProvider intervalTime={1000}>
+      <MouseTrailProvider maxTrailLength={100}>
+        <SideScrollProvider>
+          <InfiniteScrollProvider>
+            <App />
+          </InfiniteScrollProvider>
+        </SideScrollProvider>
+      </MouseTrailProvider>
+    </MagicCursorProvider>
   </React.StrictMode>
 );
 
